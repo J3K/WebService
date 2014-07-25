@@ -9,7 +9,7 @@ $DATA = simplexml_load_file("result.xml");
 $X = null;
 
 
-
+// First Parameter ... user can set CompetionName (Premier League, Liga BBVA ...)  or Date (2011-03-01, ...)
 $app->get("/:compet", function ($compet) use ($DATA,$X) {
 
 $i=0;
@@ -32,6 +32,10 @@ print_r(json_encode(array($X),JSON_PRETTY_PRINT));
 echo "</pre>";
 
 });
+
+
+
+
 
 
 $app->get("/:compet/:date", function ($compet,$date) use ($DATA,$X) {
