@@ -5,22 +5,34 @@ require 'Slim/Slim.php';
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim();
-$DATA = simplexml_load_file("https://raw.githubusercontent.com/J3K/GitHub-REPO/master/result.xml");
+$DATA = simplexml_load_file("result.xml");
 $X = null;
 
- 	
-$app->get("/:compet/", function ($compet) use ($DATA,$X) {
 
-    foreach($DATA->events as $e){
+
+$app->get("/:compet", function ($compet) use ($DATA,$X) {
+
+$i=0;
+if(validateDate($compet)){
+
+	foreach($DATA->events as $e){
+		if($e["ut"] == $compet) { $X[$i] = $e; $i++; }
+	}
+
+} else {
+
+	foreach($DATA->events as $e){
 		if($e["league"] == $compet) $X = $e;
 	}
 
+}
 
 echo "<pre>";
-print_r(json_encode(array($X)));
+print_r(json_encode(array($X),JSON_PRETTY_PRINT));
 echo "</pre>";
 
 });
+
 
 $app->get("/:compet/:date", function ($compet,$date) use ($DATA,$X) {
 
@@ -30,10 +42,20 @@ $app->get("/:compet/:date", function ($compet,$date) use ($DATA,$X) {
 
 
 echo "<pre>";
-print_r(json_encode(array($X)));
+print_r(json_encode(array($X),JSON_PRETTY_PRINT));
 echo "</pre>";
 
 });
+
+
+
+function validateDate($date, $format = 'Y-m-d')
+{
+    $d = DateTime::createFromFormat($format, $date);
+    return $d && $d->format($format) == $date;
+}
+
+$app->run();
 
 
 ?>

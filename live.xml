@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<spocosy version="1.0">
+    <liveevents id="820745" league="Premier League" sport="Football" template="England Premier League" tournament="2010/2011" ut="2011-03-01">
+        <liveevent date="2011-03-01 20:45:00" gamestarted="" id="839993" name="Chelsea-Manchester United" round="18" secondhalfstarted="" status="Not started">
+            <results participantid="8455" participantname="Chelsea">
+                <result id="7942186" type="ordinarytime" value="0"/>
+                <result id="7942188" type="runningscore" value="0"/>
+            </results>
+            <results participantid="10260" participantname="Manchester United">
+                <result id="7942187" type="ordinarytime" value="0"/>
+                <result id="7942189" type="runningscore" value="0"/>
+            </results>
+        </liveevent>
+        <liveevent date="2011-03-01 21:45:00" gamestarted="" id="839993" name="Liverpool-Manchester City" round="18" secondhalfstarted="" status="Not started">
+            <results participantid="8455" participantname="Liverpool">
+                <result id="7942186" type="ordinarytime" value="0"/>
+                <result id="7942188" type="runningscore" value="0"/>
+            </results>
+            <results participantid="10260" participantname="Manchester City">
+                <result id="7942187" type="ordinarytime" value="0"/>
+                <result id="7942189" type="runningscore" value="0"/>
+            </results>
+        </liveevent>
+    </liveevents>
+    <liveevents id="821290" league="LIGA BBVA" sport="Football" template="Spain LIGA BBVA" tournament="2010/2011" ut="2011-03-01">
+        <liveevent date="2011-03-01 20:00:00" gamestarted="" id="875757" name="Espanyol-Mallorca" round="26" secondhalfstarted="" status="Not started">
+            <results participantid="8558" participantname="Espanyol">
+                <result id="8177265" type="ordinarytime" value="0"/>
+                <result id="8177267" type="runningscore" value="0"/>
+            </results>
+            <results participantid="8661" participantname="Mallorca">
+                <result id="8177266" type="ordinarytime" value="0"/>
+                <result id="8177268" type="runningscore" value="0"/>
+            </results>
+        </liveevent>
+        <liveevent date="2011-03-01 22:00:00" gamestarted="" id="875739" name="Sevilla-Gijon" round="26" secondhalfstarted="" status="Not started">
+            <results participantid="8302" participantname="Sevilla">
+                <result id="8177193" type="ordinarytime" value="0"/>
+                <result id="8177195" type="runningscore" value="0"/>
+            </results>
+            <results participantid="9869" participantname="Gijon">
+                <result id="8177194" type="ordinarytime" value="0"/>
+                <result id="8177196" type="runningscore" value="0"/>
+            </results>
+        </liveevent>
+    </liveevents>
+</spocosy>

@@ -5,7 +5,7 @@ require 'Slim/Slim.php';
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim();
-$DATA = simplexml_load_file("https://raw.githubusercontent.com/J3K/GitHub-REPO/master/live.xml");
+$DATA = simplexml_load_file("live.xml");
 $X = null;
 
  	
@@ -17,7 +17,7 @@ $app->get("/:compet/", function ($compet) use ($DATA,$X) {
 
 
 echo "<pre>";
-print_r(json_encode(array($X)));
+print_r(json_encode(array($X),JSON_PRETTY_PRINT));
 echo "</pre>";
 
 });
@@ -30,7 +30,7 @@ $app->get("/:compet/:date", function ($compet,$date) use ($DATA,$X) {
 
 
 echo "<pre>";
-print_r(json_encode(array($X)));
+print_r(json_encode(array($X),JSON_PRETTY_PRINT));
 echo "</pre>";
 
 });
@@ -47,7 +47,7 @@ $app->get("/:compet/:date/:heurematch", function ($compet,$date,$hour) use ($DAT
 	}
 
 echo "<pre>";
-print_r(json_encode(array($X)));
+print_r(json_encode(array($X),JSON_PRETTY_PRINT));
 echo "</pre>";
 
 });
@@ -62,14 +62,13 @@ $app->get("/:compet/:date/:heurematch/:nomequipe", function ($compet,$date,$hour
 				if($node["date"] == "$date $hour") 
 			 		foreach($node->results as $noderesults) 
 					{
-						echo $noderesults["participantname"];
 					 	if($noderesults["participantname"] == "$nomequipe") $X = $noderesults;
 					}
 			}
 	}
 
 echo "<pre>";
-print_r(json_encode(array($X)));
+print_r(json_encode(array($X),JSON_PRETTY_PRINT));
 echo "</pre>";
 
 });
