@@ -8,7 +8,7 @@ $app = new \Slim\Slim();
 $DATA = simplexml_load_file("live.xml");
 $X = null;
 
- 	
+$app->contentType('application/json');
 $app->get("/:compet/", function ($compet) use ($DATA,$X) {
 
     foreach($DATA->liveevents as $le){
@@ -16,9 +16,7 @@ $app->get("/:compet/", function ($compet) use ($DATA,$X) {
 	}
 
 
-echo "<pre>";
 print_r(json_encode(array($X),JSON_PRETTY_PRINT));
-echo "</pre>";
 
 });
 
@@ -29,9 +27,7 @@ $app->get("/:compet/:date", function ($compet,$date) use ($DATA,$X) {
 	}
 
 
-echo "<pre>";
 print_r(json_encode(array($X),JSON_PRETTY_PRINT));
-echo "</pre>";
 
 });
 
@@ -46,9 +42,7 @@ $app->get("/:compet/:date/:heurematch", function ($compet,$date,$hour) use ($DAT
 			}
 	}
 
-echo "<pre>";
 print_r(json_encode(array($X),JSON_PRETTY_PRINT));
-echo "</pre>";
 
 });
 
@@ -67,17 +61,9 @@ $app->get("/:compet/:date/:heurematch/:nomequipe", function ($compet,$date,$hour
 			}
 	}
 
-echo "<pre>";
 print_r(json_encode(array($X),JSON_PRETTY_PRINT));
-echo "</pre>";
 
 });
-
-
-
-
-
-
 
 
 

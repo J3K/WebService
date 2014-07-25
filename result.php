@@ -8,7 +8,7 @@ $app = new \Slim\Slim();
 $DATA = simplexml_load_file("result.xml");
 $X = null;
 
-
+$app->contentType('application/json');
 // First Parameter ... user can set CompetionName (Premier League, Liga BBVA ...)  or Date (2011-03-01, ...)
 $app->get("/:compet", function ($compet) use ($DATA,$X) {
 
@@ -27,9 +27,9 @@ if(validateDate($compet)){
 
 }
 
-echo "<pre>";
 print_r(json_encode(array($X),JSON_PRETTY_PRINT));
-echo "</pre>";
+
+return json_encode(array($X)).".json";
 
 });
 
@@ -37,7 +37,7 @@ echo "</pre>";
 
 
 
-
+// First Parameter + Second Parameter
 $app->get("/:compet/:date", function ($compet,$date) use ($DATA,$X) {
 
     foreach($DATA->events as $e){
@@ -45,9 +45,7 @@ $app->get("/:compet/:date", function ($compet,$date) use ($DATA,$X) {
 	}
 
 
-echo "<pre>";
 print_r(json_encode(array($X),JSON_PRETTY_PRINT));
-echo "</pre>";
 
 });
 
